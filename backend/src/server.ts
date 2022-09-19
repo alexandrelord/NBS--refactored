@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import chalk from 'chalk';
 import logger from './utils/logger';
 
-const app: Express = express();
+const router: Express = express();
 
 /** Connect to Mongo */
 mongoose
@@ -17,11 +17,11 @@ mongoose
     });
 
 /** Middleware */
-app.use(logger);
-app.use(express.json());
+router.use(logger);
+router.use(express.json());
 
 /** Rules of our API */
-app.use((req: Request, res: Response, next: NextFunction) => {
+router.use((req: Request, res: Response, next: NextFunction) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     if (req.method === 'OPTIONS') {
@@ -32,20 +32,18 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 /** Health Check */
-app.get('/ping', (req: Request, res: Response) => res.status(200).json({ message: 'pong' }));
+router.get('/ping', (req: Request, res: Response) => res.status(200).json({ message: 'pong' }));
 
 /** Routes */
-app.use((req: Request, res: Response) => {
+router.use((req: Request, res: Response) => {
     const error = new Error('Not found');
     return res.status(404).json({
         message: error.message
     });
 });
 
-/** Error Handling */
-
 /**  Server */
 const PORT = config.server.port;
-app.listen(PORT, () => {
+router.listen(PORT, () => {
     console.log(chalk.yellow(`Server is running on port ${PORT}`));
 });
