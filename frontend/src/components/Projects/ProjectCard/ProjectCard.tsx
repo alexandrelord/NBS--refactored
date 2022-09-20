@@ -7,7 +7,7 @@ const ProjectCard = () => {
     return (
         <div>
             <Link to="#">
-                <img className="project-image" src="/beaver_dam.jpeg" alt="" />
+                <img className="project-image" src="/assets/beaver_dam.jpeg" alt="" />
             </Link>
             <div className="project-info">
                 <span className="title">Beaver Dam</span>

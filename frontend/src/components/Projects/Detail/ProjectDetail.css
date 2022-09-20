@@ -1,0 +1,64 @@
+main {
+    font-family: 'Playfair Display', serif;
+}
+
+.project-main {
+    height: 100vh;
+    background-color: #266f45;
+    position: relative;
+}
+
+.project-num {
+    position: absolute;
+    top: 0.75rem;
+    left: 3rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #aec9ab;
+}
+
+.project-title {
+    position: absolute;
+    top: 4rem;
+    left: 6rem;
+}
+
+.project-title h1 {
+    font-size: 8rem;
+    line-height: 1;
+    color: #aec9ab;
+    text-transform: uppercase;
+}
+
+.project-title .span-one,
+.span-two,
+.span-three {
+    display: block;
+}
+
+.project-title .span-two {
+    opacity: 0.8;
+}
+
+.project-title .span-three {
+    opacity: 0.6;
+}
+
+.project-description {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    width: 33.33%;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    color: #aec9ab;
+}
+
+img {
+    position: absolute;
+    height: 75%;
+    width: 33.33%;
+    right: 3rem;
+    bottom: 3rem;
+    object-fit: cover;
+}
