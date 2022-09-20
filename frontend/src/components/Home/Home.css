@@ -1,4 +1,4 @@
-body {
+.home {
     background-image: url('../../../public/assets/home_page_bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -40,7 +40,7 @@ body {
     font-size: 1.5rem;
 }
 
-.home-image-rights > a:link,
-.home-image-rights > a:visited {
+a:link,
+a:visited {
     color: rgb(187, 247, 208);
 }
