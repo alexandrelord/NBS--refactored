@@ -1,30 +1,30 @@
-.project-image {
+.project-card-image {
     width: 100%;
     height: 15rem;
     object-fit: cover;
 }
 
-.project-image:hover {
+.project-card-image:hover {
     transform: scale(1.05);
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
 
-.project-info {
+.project-card-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 0.75rem;
 }
 
-.project-info .title {
+.project-card-info > .title {
     font-size: 1.5rem;
     line-height: 2rem;
     margin-bottom: 0.5rem;
     color: black;
 }
 
-.project-info .description {
+.project-card-info > .description {
     font-size: 1rem;
     line-height: 1.5rem;
     color: rgb(107, 114, 128);

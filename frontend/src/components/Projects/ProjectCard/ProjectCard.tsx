@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 
 /** CSS Module */
-import './ProjectCard.css';
+import styles from './ProjectCard.module.css';
 
 const ProjectCard = () => {
     return (
         <div>
             <Link to="#">
-                <img className="project-image" src="/assets/beaver_dam.jpeg" alt="" />
+                <img className={styles['project-card-image']} src="/assets/beaver_dam.jpeg" alt="" />
             </Link>
-            <div className="project-info">
-                <span className="title">Beaver Dam</span>
-                <span className="description">Climate Mitigation</span>
+
+            <div className={styles['project-card-info']}>
+                <span className={styles.title}>Beaver Dam</span>
+                <span className={styles.description}>Climate Mitigation</span>
             </div>
         </div>
     );
