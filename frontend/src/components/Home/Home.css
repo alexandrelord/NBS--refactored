@@ -1,0 +1,46 @@
+body {
+    background-image: url('../../../public/assets/home_page_bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.home-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(187, 247, 208);
+}
+
+.home-title h1 {
+    font-size: 6rem;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.home-title h2 {
+    font-size: 2rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+}
+
+.home-image-rights {
+    position: absolute;
+    bottom: 1rem;
+    right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.home-image-rights > a:link,
+.home-image-rights > a:visited {
+    color: rgb(187, 247, 208);
+}

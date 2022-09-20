@@ -1,4 +1,4 @@
-/** CSS Module */
+/** CSS Style */
 import LeafletMap from '../../Map/LeafletMap';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import './Projects.css';
