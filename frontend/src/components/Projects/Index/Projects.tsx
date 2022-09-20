@@ -1,20 +1,22 @@
-/** CSS Style */
+/** CSS Module */
+import styles from './Projects.module.css';
+
+/** Custom Components */
 import LeafletMap from '../../Map/LeafletMap';
 import ProjectCard from '../ProjectCard/ProjectCard';
-import './Projects.css';
 
 const Projects = () => {
     return (
-        <main>
-            <div className="map-wrapper">
+        <>
+            <div className={styles['map-wrapper']}>
                 <LeafletMap />
             </div>
-            <section>
+            <div className={styles.projects}>
                 <ProjectCard />
                 <ProjectCard />
                 <ProjectCard />
-            </section>
-        </main>
+            </div>
+        </>
     );
 };
 

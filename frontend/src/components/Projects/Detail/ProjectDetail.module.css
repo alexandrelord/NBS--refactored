@@ -1,4 +1,4 @@
-main {
+.project {
     font-family: 'Playfair Display', serif;
 }
 
@@ -54,7 +54,7 @@ main {
     color: #aec9ab;
 }
 
-img {
+.project-img {
     position: absolute;
     height: 75%;
     width: 33.33%;
