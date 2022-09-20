@@ -19,7 +19,7 @@ const NavBar = () => {
             <div className="menu">
                 <Link to="/projects">Proyectos</Link>
                 <Link to="#">Agregar Proyectos</Link>
-                <Link to="#">Logout</Link>
+                <Link to="#">Iniciar Sesión</Link>
             </div>
         </nav>
     );
