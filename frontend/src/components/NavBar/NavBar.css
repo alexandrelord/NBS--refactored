@@ -1,0 +1,39 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.75rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.hamburger-wrapper {
+    margin-right: 1.25rem;
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .hamburger-wrapper {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+}
