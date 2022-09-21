@@ -1,43 +1,31 @@
-import express, { Request, Response, NextFunction, Express } from 'express';
-import { config } from './config/config';
-import mongoose from 'mongoose';
-import chalk from 'chalk';
-import logger from './utils/logger';
-import session from 'express-session';
-import passport from 'passport';
+import express, { Request, Response, Express } from 'express';
 
+/** Config */
+import { config } from './config/config';
+import './config/database'; // Connect to database
+import apiRules from './config/apiRules'; // Set API rules
+
+import logger from './utils/logger';
+import chalk from 'chalk';
+import cookieSession from 'cookie-session';
+import passport from 'passport';
+import './auth/passportGoogleSSO'; // Passport Google SSO
+
+/** Route Modules */
 import projectsRouter from './routes/projects';
 import usersRouter from './routes/users';
 
 const router: Express = express();
 
-/** Connect to Mongo */
-mongoose
-    .connect(config.mongo.url, { retryWrites: true, w: 'majority' })
-    .then(() => {
-        console.log(chalk.green('MongoDB connected'));
-    })
-    .catch((err) => {
-        console.error(err);
-    });
+/** Rules of our API */
+router.use(apiRules);
 
 /** Middleware */
 router.use(logger);
 router.use(express.json());
-router.use(session({ secret: config.session.secret, resave: false, saveUninitialized: false }));
+router.use(cookieSession({ maxAge: 24 * 60 * 60 * 1000, keys: [config.cookie.secret] }));
 router.use(passport.initialize());
 router.use(passport.session());
-
-/** Rules of our API */
-router.use((req: Request, res: Response, next: NextFunction) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    if (req.method === 'OPTIONS') {
-        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-        return res.status(200).json({});
-    }
-    next();
-});
 
 /** Health Check */
 router.get('/ping', (req: Request, res: Response) => res.status(200).json({ message: 'pong' }));

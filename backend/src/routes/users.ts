@@ -3,15 +3,18 @@ import passport from 'passport';
 
 const router = express.Router();
 
-// Google OAuth login route
-router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+const successLoginUrl = 'http://localhost:3000/successLogin';
+const failureLoginUrl = 'http://localhost:3000/failureLogin';
+
+router.get('/login/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 // Google OAuth callback route
 router.get(
-    '/oauth2callback',
+    '/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/users',
-        failureRedirect: '/users'
+        failureMessage: 'Invalid login',
+        failureRedirect: failureLoginUrl,
+        successRedirect: successLoginUrl
     })
 );
 
@@ -19,7 +22,7 @@ router.get(
 router.get('/logout', (req: Request, res: Response, next: NextFunction) => {
     req.logout((err: any) => {
         if (err) return next(err);
-        res.redirect('/users');
+        res.redirect('/users/login/google');
     });
 });
 
