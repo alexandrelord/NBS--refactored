@@ -1,14 +1,15 @@
 import mongoose, { Schema } from 'mongoose';
+import type { Document } from 'mongoose';
 
-interface IUser {
-    name: string;
+export interface IUser extends Document {
+    username: string;
     email: string;
     googleId: string;
 }
 
 const UserSchema = new Schema<IUser>(
     {
-        name: { type: String },
+        username: { type: String },
         email: { type: String },
         googleId: { type: String }
     },
