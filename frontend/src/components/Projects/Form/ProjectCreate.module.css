@@ -1,0 +1,52 @@
+.create-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+.create-input-wrapper {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-color: black;
+    padding: 0.5rem 0;
+}
+
+.create-input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    color: black;
+    margin-right: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.25;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    font-size: 1rem;
+}
+
+.create-file-input-wrapper {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-color: black;
+    padding: 1rem 0;
+}
+
+.create-form-button {
+    width: 100%;
+    margin: 2.5rem 0 0.25rem 0;
+    background-color: transparent;
+    border-width: 1px;
+    border-color: black;
+    padding: 0.5rem 1rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.025em;
+}
+
+.create-form-button:hover {
+    transform: scale(1.05);
+}
