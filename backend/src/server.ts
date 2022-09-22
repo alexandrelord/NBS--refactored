@@ -8,14 +8,13 @@ import { config } from './config/config';
 import './config/database'; // Connect to database
 // import credentials from './middleware/credentials';
 import passport from 'passport';
-import './auth/passportGoogleSSO'; // Passport Google SSO
+import './config/auth/passportGoogleSSO'; // Passport Google SSO
 import './middleware/auth'; // check if user is authenticated
 import corsOptions from './config/corsOptions';
 
 /** Route Modules */
-import projectsRouter from './routes/projects';
-import usersRouter from './routes/users';
-
+import projectsRouter from './routes/api/projects';
+import usersRouter from './routes/users/googleOauth';
 
 const router: Express = express();
 
@@ -24,7 +23,7 @@ const router: Express = express();
 // router.use(credentials);
 
 // Cross Origin Resource Sharing
-router.use(cors(corsOptions))
+router.use(cors(corsOptions));
 
 /** Middleware */
 router.use(logger);

@@ -1,14 +1,10 @@
 import express, { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
-import isUserAuthenticated from '../middleware/auth';
 
 const router = express.Router();
 
-router.post('/auth/user', isUserAuthenticated, (req: Request, res: Response) => {
-    res.status(200).json({ user: req.user });
-});
-
-router.get('/login/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+// @route   GET /users/google/login
+router.get('/google/login', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get(
     '/auth/google/callback',
