@@ -1,24 +1,30 @@
 import express, { Request, Response, Express } from 'express';
-
-/** Config */
-import { config } from './config/config';
-import './config/database'; // Connect to database
-import apiRules from './config/apiRules'; // Set API rules
-
-import logger from './utils/logger';
+import cors from 'cors';
+import logger from './middleware/logger';
+import errorHandler from './middleware/errorHandler';
 import chalk from 'chalk';
 import cookieSession from 'cookie-session';
+import { config } from './config/config';
+import './config/database'; // Connect to database
+// import credentials from './middleware/credentials';
 import passport from 'passport';
 import './auth/passportGoogleSSO'; // Passport Google SSO
+import './middleware/auth'; // check if user is authenticated
+import corsOptions from './config/corsOptions';
 
 /** Route Modules */
 import projectsRouter from './routes/projects';
 import usersRouter from './routes/users';
 
+
 const router: Express = express();
 
-/** Rules of our API */
-router.use(apiRules);
+// Handle options credentials check - before CORS!
+// and fetch cookies credentials requirement
+// router.use(credentials);
+
+// Cross Origin Resource Sharing
+router.use(cors(corsOptions))
 
 /** Middleware */
 router.use(logger);
@@ -30,7 +36,7 @@ router.use(passport.session());
 /** Health Check */
 router.get('/ping', (req: Request, res: Response) => res.status(200).json({ message: 'pong' }));
 
-/** Routes */
+/** Route Handlers */
 router.use('/users', usersRouter);
 router.use('/projects', projectsRouter);
 router.use((req: Request, res: Response) => {
@@ -39,6 +45,9 @@ router.use((req: Request, res: Response) => {
         message: error.message
     });
 });
+
+/** Error Handling */
+router.use(errorHandler);
 
 /**  Server */
 const PORT = config.server.port;
