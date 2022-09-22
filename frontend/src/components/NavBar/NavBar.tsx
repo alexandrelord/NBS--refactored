@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 /** CSS Module */
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
+
+    const location = useLocation();
+    const { pathname } = location;
+
     return (
         <nav>
             <Link to="/">NBS</Link>
@@ -19,7 +23,7 @@ const NavBar = () => {
             <div className={styles.menu}>
                 <Link to="/projects">Proyectos</Link>
                 <Link to="/projects/create">Agregar Proyectos</Link>
-                <Link to="/login">Iniciar Sesión</Link> 
+                <Link to="/login" state={{prevPath: pathname}}>Iniciar Sesión</Link> 
             </div>
         </nav>
     );

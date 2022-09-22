@@ -1,3 +1,7 @@
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAuthUser, setIsAuthenticated } from '../../../app/appSlice';
+
 /** CSS Module */
 import styles from './Login.module.css';
 
@@ -8,20 +12,33 @@ import GoogleButton from "react-google-button";
 import {api} from '../../../services/api';
 
 const Login = () => {
-    
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { prevPath } = location.state as { prevPath: string };
+
     const fetchUser = async () => {
         try {
-            const response = await api({url: 'http://localhost:4000/users/auth/user', method: 'POST'});
-            console.log(response);
+            const response = await api({url: 'http://localhost:4000/users/auth/user', method: 'GET'});
+            if (response.user) {
+                dispatch(setIsAuthenticated(true));
+                dispatch(setAuthUser(response.user));
+                navigate(prevPath);
+            }
+
             
         } catch (error) {
             console.error(error);
+            dispatch(setIsAuthenticated(false));
+            dispatch(setAuthUser(null));
+            navigate('/login/error');
         }
     }
     
-    const handleClick = async() => {
+    const handleLogin = async() => {
         let timer: NodeJS.Timeout | null = null;
-        const googleLoginUrl = 'http://localhost:4000/users/login/google';
+        const googleLoginUrl = 'http://localhost:4000/users/google/login';
         const newWindow = window.open(googleLoginUrl, '_blank', 'width=500,height=600');
 
         if (newWindow) {
@@ -37,7 +54,7 @@ const Login = () => {
     return (
         <div className={styles['buttons-container']}>
             <div className={styles['center']}>
-                <GoogleButton onClick={handleClick} />
+                <GoogleButton onClick={handleLogin} />
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ interface IResource<T> {
     url: string;
     method: string;
     data?: T;
+
 }
 
 export const api = async <T>(resource: IResource<T>) => {
@@ -11,7 +12,7 @@ export const api = async <T>(resource: IResource<T>) => {
             'Content-Type': 'application/json',
             Accept: 'application/json',
         },
-        withCredentials: true,
+        credentials: 'include' as RequestCredentials,
         body: JSON.stringify(resource.data)
     };
     const response = await fetch(resource.url, options);
