@@ -18,8 +18,8 @@ const NavBar = () => {
             </div>
             <div className={styles.menu}>
                 <Link to="/projects">Proyectos</Link>
-                <Link to="#">Agregar Proyectos</Link>
-                <Link to="#">Iniciar Sesión</Link>
+                <Link to="/projects/create">Agregar Proyectos</Link>
+                <Link to="/login">Iniciar Sesión</Link> 
             </div>
         </nav>
     );
