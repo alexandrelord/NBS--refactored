@@ -15,31 +15,28 @@ passport.use(
         },
         async (accessToken, refreshToken, profile, done) => {
             const user = await User.findOne({ googleId: profile.id });
-
+      
             if (!user) {
-                const newUser = await User.create({
-                    googleId: profile.id,
-                    username: profile.displayName,
-                    email: profile.emails?.[0].value
-                });
-                if (newUser) {
-                    await newUser.save();
-                    done(null, newUser);
-                } else {
-                    done(null, newUser);
-                }
+              const newUser = await User.create({
+                googleId: profile.id,
+                username: profile.displayName,
+                email: profile.emails?.[0].value,
+              });
+              if (newUser) {
+                done(null, newUser);
+              }
+            } else {
+              done(null, user);
             }
-        }
+          }
     )
 );
 
 passport.serializeUser((user, done) => {
-    console.log('serializeUser', user);
     done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {
     const user = await User.findById(id);
-    console.log('deserializeUser', user);
     done(null, user);
 });

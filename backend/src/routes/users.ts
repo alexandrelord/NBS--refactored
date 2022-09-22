@@ -1,24 +1,24 @@
 import express, { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
+import isUserAuthenticated from '../middleware/auth';
 
 const router = express.Router();
 
-const successLoginUrl = 'http://localhost:3000/successLogin';
-const failureLoginUrl = 'http://localhost:3000/failureLogin';
+router.post('/auth/user', isUserAuthenticated, (req: Request, res: Response) => {
+    res.status(200).json({ user: req.user });
+});
 
 router.get('/login/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-// Google OAuth callback route
 router.get(
     '/auth/google/callback',
     passport.authenticate('google', {
         failureMessage: 'Invalid login',
-        failureRedirect: failureLoginUrl,
-        successRedirect: successLoginUrl
+        failureRedirect: 'http://localhost:3000/login/failure',
+        successRedirect: 'http://localhost:3000/login/success'
     })
 );
 
-// OAuth logout route
 router.get('/logout', (req: Request, res: Response, next: NextFunction) => {
     req.logout((err: any) => {
         if (err) return next(err);
