@@ -1,26 +1,26 @@
 import express, { Request, Response, Express } from 'express';
 import cors from 'cors';
+import corsOptions from './config/corsOptions';
+import credentials from './middleware/credentials';
 import logger from './middleware/logger';
 import errorHandler from './middleware/errorHandler';
 import chalk from 'chalk';
 import cookieSession from 'cookie-session';
 import { config } from './config/config';
 import './config/database'; // Connect to database
-// import credentials from './middleware/credentials';
 import passport from 'passport';
 import './config/auth/passportGoogleSSO'; // Passport Google SSO
 import './middleware/auth'; // check if user is authenticated
-import corsOptions from './config/corsOptions';
 
 /** Route Modules */
 import projectsRouter from './routes/api/projects';
-import usersRouter from './routes/users/googleOauth';
+import usersRouter from './routes/users/auth';
 
 const router: Express = express();
 
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
-// router.use(credentials);
+router.use(credentials);
 
 // Cross Origin Resource Sharing
 router.use(cors(corsOptions));
