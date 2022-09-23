@@ -3,9 +3,9 @@ import logger from 'redux-logger';
 import authReducer from '../features/authSlice';
 
 export const store = configureStore({
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: [logger],
     reducer: {
-        app: authReducer
+        auth: authReducer
     }
 });
 

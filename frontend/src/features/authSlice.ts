@@ -1,16 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../app/store';
 
-interface IAppState {
+export interface IAuthState {
     isAuthenticated: boolean;
     authUser: any | null;
 }
 
-const initialState: IAppState = {
+const initialState: IAuthState = {
     isAuthenticated: false,
     authUser: null
 };
 
-const AppSlice = createSlice({
+const AuthSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
@@ -23,5 +24,6 @@ const AppSlice = createSlice({
     }
 });
 
-export const { setIsAuthenticated, setAuthUser } = AppSlice.actions;
-export default AppSlice.reducer;
+export const { setIsAuthenticated, setAuthUser } = AuthSlice.actions;
+export const selectAuthUser = (state: RootState) => state.auth.authUser;
+export default AuthSlice.reducer;

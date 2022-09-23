@@ -13,7 +13,6 @@ import { api } from '../../../services/api';
 
 const Login = () => {
     const dispatch = useDispatch();
-
     const navigate = useNavigate();
     const location = useLocation();
     const { prevPath } = location.state as { prevPath: string };

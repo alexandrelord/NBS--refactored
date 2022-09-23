@@ -31,6 +31,7 @@ passport.use(
     )
 );
 
+// Generate session token with user id
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });

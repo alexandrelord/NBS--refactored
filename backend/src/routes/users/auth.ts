@@ -15,17 +15,16 @@ router.get('/google/login', passport.authenticate('google', { scope: ['profile',
 router.get(
     '/auth/google/callback',
     passport.authenticate('google', {
-        failureMessage: 'Invalid login',
         failureRedirect: 'http://localhost:3000/login/failure',
         successRedirect: 'http://localhost:3000/login/success'
     })
 );
 
-router.get('/logout', (req: Request, res: Response, next: NextFunction) => {
+router.get('/google/logout', (req: Request, res: Response, next: NextFunction) => {
     req.logout((err: any) => {
         if (err) return next(err);
-        res.redirect('/users/login/google');
     });
+    res.status(200).json({ logout: 'success' });
 });
 
 export default router;

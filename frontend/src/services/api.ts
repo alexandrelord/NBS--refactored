@@ -16,13 +16,11 @@ export const api = async <T>(resource: IResource<T>) => {
         body: JSON.stringify(resource.data)
     };
     const response = await fetch(resource.url, options);
-    console.log(response);
+    
     if (!response.ok) {
         const error = await response.json();
         throw new Error(error.message);
-    } else if (response.status === 201) {
-        return response;
-    } else {
-        return await response.json();
     }
+    return await response.json();
+
 };

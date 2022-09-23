@@ -1,12 +1,32 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectAuthUser } from '../../features/authSlice';
+import { setAuthUser, setIsAuthenticated } from '../../features/authSlice';
+import { api } from '../../services/api';
 
 /** CSS Module */
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
-
+    const user = useSelector(selectAuthUser);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation();
     const { pathname } = location;
+
+    const handleLogout = async () => {
+        try {
+            const response = await api({ url: 'http://localhost:4000/users/google/logout', method: 'GET' });
+            
+            if (response.logout === 'success') {
+                dispatch(setIsAuthenticated(false));
+                dispatch(setAuthUser(null));
+                navigate('/');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <nav>
@@ -23,7 +43,16 @@ const NavBar = () => {
             <div className={styles.menu}>
                 <Link to="/projects">Proyectos</Link>
                 <Link to="/projects/create">Agregar Proyectos</Link>
-                <Link to="/login" state={{prevPath: pathname}}>Iniciar Sesión</Link> 
+                {!user ? (
+                    <Link to="/login" state={{ prevPath: pathname }}>
+                        Iniciar Sesión
+                    </Link>
+                ) : (
+                    <Link to="#" onClick={handleLogout}>
+                        {' '}
+                        Cerrar Sesión{' '}
+                    </Link>
+                )}
             </div>
         </nav>
     );
