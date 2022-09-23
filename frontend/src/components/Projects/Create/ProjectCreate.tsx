@@ -5,11 +5,7 @@ import CreateForm from '../Form/CreateForm';
 const ProjectCreate = () => {
     const user = useSelector(selectAuthUser);
 
-    return (
-        <div>
-            {user ? <CreateForm /> : <h1>Debes iniciar sesión para crear un proyecto</h1>}
-        </div>
-    )
+    return <div>{user ? <CreateForm /> : <h1>Debes iniciar sesión para crear un proyecto</h1>}</div>;
 };
 
 export default ProjectCreate;
