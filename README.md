@@ -1,8 +1,8 @@
 # Nature-Based-Solutions
 
 ## The App
-Nature-based Solutions (NbS) are widely promoted when formulating climate change adaptation and mitigation measures; due to the multiple environmental, social, and economic benefits they provide. The app showcases NbS for climate mitigation and adaptation in Colombia.
-Welcome to <a href="https://soluciones-naturaleza.herokuapp.com/" target="_blank">Colombia Sostenible</a>!
+The app showcases NbS for climate mitigation and adaptation in Colombia.
+
 
 ## Images
 #### Main Page
