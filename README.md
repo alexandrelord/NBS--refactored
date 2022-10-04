@@ -3,6 +3,15 @@
 ## The App
 The app showcases NbS for climate mitigation and adaptation in Colombia.
 
+## Technologies
+* Typescript
+* Node
+* Express
+* MongoDB
+* Mongoose
+* GraphQL
+* Passport
+* Google OAuth
 
 ## Images
 #### Main Page
@@ -18,16 +27,3 @@ The app showcases NbS for climate mitigation and adaptation in Colombia.
 #### Add Project Form
 <img src="project-images/add_project.png" width=100% />
 
-## Technologies
-* HTML
-* Javascript
-* Tailwind CSS
-* Express and Node JS
-* MongoDB and Mongoose
-* Passport
-* Google OAuth
-
-## APIs
-* Leaflet
-* Node-Geocoder
-* Imgur
