@@ -9,7 +9,6 @@ The app showcases NbS for climate mitigation and adaptation in Colombia.
 * Express
 * MongoDB
 * Mongoose
-* GraphQL
 * Passport
 * Google OAuth
 
