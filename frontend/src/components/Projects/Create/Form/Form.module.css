@@ -1,0 +1,83 @@
+.form-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 80rem;
+    padding: 2rem;
+    background-color: rgb(38, 111, 69);
+    font-size: 1.5rem;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'left right';
+    grid-gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-group .left {
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-group .right {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dates {
+    display: flex;
+    gap: 2rem;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    text-align: left;
+    gap: 0.3rem;
+}
+
+input,
+select,
+textarea {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    background: whitesmoke;
+}
+
+textarea {
+    resize: vertical;
+    height: 21.5vh;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+.input-wrapper label {
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+button {
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    background-color: rgb(38, 111, 69);
+    color: whitesmoke;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 15rem;
+}
