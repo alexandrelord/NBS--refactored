@@ -23,7 +23,7 @@ const ProjectDetail = () => {
         <div className={styles.project}>
             <div className={styles['project-main']}>
                 <p className={styles['project-num']}>Proyecto 01</p>
-                <div className={styles['project-title']}>
+                <div className={styles['form-title']}>
                     <h1>
                         <span className={styles['span-one']}>humedales</span>
                         <span className={styles['span-two']}>de la</span>

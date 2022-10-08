@@ -11,7 +11,7 @@ const CreateForm = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('submit');
+        console.log(project);
     };
 
     return (
