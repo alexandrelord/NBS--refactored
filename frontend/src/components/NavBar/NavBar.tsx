@@ -17,7 +17,7 @@ const NavBar = () => {
     const handleLogout = async () => {
         try {
             const response = await api({ url: 'http://localhost:4000/users/google/logout', method: 'GET' });
-            
+
             if (response.logout === 'success') {
                 dispatch(setIsAuthenticated(false));
                 dispatch(setAuthUser(null));
@@ -30,7 +30,7 @@ const NavBar = () => {
 
     return (
         <nav>
-            <Link to="/">NBS</Link>
+            <Link to="/">SBN</Link>
             <div className={styles['hamburger-wrapper']}>
                 <svg className={styles.hamburger} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -42,7 +42,7 @@ const NavBar = () => {
             </div>
             <div className={styles.menu}>
                 <Link to="/projects">Proyectos</Link>
-                <Link to="/projects/create">Agregar Proyectos</Link>
+                <Link to="/projects/create">Crear Proyecto</Link>
                 {!user ? (
                     <Link to="/login" state={{ prevPath: pathname }}>
                         Iniciar Sesión

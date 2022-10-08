@@ -1,32 +1,56 @@
-.form-container {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 80rem;
-    padding: 2rem;
-    background-color: rgb(38, 111, 69);
-    font-size: 1.5rem;
+.create-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
 }
 
-.form-group {
+.form-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'left right';
-    grid-gap: 2rem;
-    margin-bottom: 1rem;
+    grid-template-areas: 'form image';
+    width: 81.25rem;
+    height: 52.5rem;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
 }
 
-.form-group .left {
-    grid-area: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.form {
+    grid-area: 'form';
+    background-color: rgb(250, 206, 57);
 }
 
-.form-group .right {
-    grid-area: right;
+.image {
+    grid-area: 'image';
+    background-image: url('/public/assets/Cactus.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.form-header {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.form-title h1 {
+    padding: 1rem 1.5rem;
+    font-size: 6rem;
+    text-transform: uppercase;
+}
+
+.form-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: 70%;
+    font-size: 1.25rem;
+    margin-top: 3rem;
+    padding: 5rem 2rem;
+    gap: 1rem;
+}
+
+.form-title .span-one,
+.span-two {
+    display: block;
 }
 
 .dates {
@@ -34,7 +58,7 @@
     gap: 2rem;
 }
 
-.input-wrapper {
+.input-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -42,20 +66,23 @@
     gap: 0.3rem;
 }
 
-input,
+.input-container > input,
 select,
 textarea {
-    border: 1px solid black;
     border-radius: 5px;
+    border: none;
     padding: 0.5rem;
     font-size: 1.5rem;
-    font-family: 'Playfair Display', serif;
-    background: whitesmoke;
+    background-color: rgb(253, 230, 155);
 }
 
-textarea {
-    resize: vertical;
-    height: 21.5vh;
+.input-container > textarea {
+    resize: none;
+    height: 10rem;
+}
+
+.input-container > label {
+    font-weight: bold;
 }
 
 input:focus,
@@ -64,20 +91,70 @@ select:focus {
     outline: none;
 }
 
-.input-wrapper label {
-    font-weight: bold;
-    color: whitesmoke;
+.form-submit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
 }
 
-button {
-    /* border: 1px solid whitesmoke;
+.form-submit-container h3 {
+    text-align: center;
+}
+
+.form-submit-button {
     border-radius: 5px;
+    border: none;
     padding: 0.5rem;
     font-size: 1.8rem;
     font-family: 'Playfair Display', serif;
-    background-color: rgb(38, 111, 69);
-    color: whitesmoke;
+    background-color: rgb(253, 230, 155);
     cursor: pointer;
-    margin-top: 1rem;
-    width: 15rem; */
+    width: 15rem;
+}
+
+/* Image Grid Area */
+
+.button-container {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+.button-container > button {
+    display: inline-block;
+    padding: 1rem 1.25rem;
+    font-size: 0.75rem;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(253, 230, 155);
+}
+
+.button-container .up {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 1px solid rgb(0 0 0 / 10%);
+}
+
+.button-container .down {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 2.5px 2.5px 0;
+    display: inline-block;
+    padding: 5px;
+}
+
+.up .arrow {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down .arrow {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
