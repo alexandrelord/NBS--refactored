@@ -5,10 +5,10 @@ import styles from './Form.module.css';
 /** Interfaces */
 import { IProject } from '../../../../types/interfaces';
 
-const Test = () => {
+const Form = () => {
     const [project, setProject] = useState<IProject>({} as IProject);
     const [currentPage, setCurrentPage] = useState(1);
-    const pages = [1, 2, 3, 4];
+    const pages = [1, 2, 3, 4, 5];
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -61,10 +61,6 @@ const Test = () => {
                         <input type="date" onChange={(e) => setProject({ ...project, endDate: e.target.value })} required />
                     </div>
                 </div>
-                <div className={styles['input-container']}>
-                    <label htmlFor="files">Imagen</label>
-                    <input id="files" onChange={(e) => setProject({ ...project, image: e.target.files })} type="file" required />
-                </div>
             </>
         );
     };
@@ -95,6 +91,23 @@ const Test = () => {
     const renderPageFour = () => {
         return (
             <>
+                <div className={styles['input-container']}>
+                    <div className={styles['input-container']}>
+                        <label htmlFor="files">Imagen</label>
+                        <input id="files" onChange={(e) => setProject({ ...project, image: e.target.files })} type="file" required />
+                    </div>
+                    <div className={styles['input-container']}>
+                        <label htmlFor="files">Link</label>
+                        <input id="files" onChange={(e) => setProject({ ...project, url: e.target.value })} type="url" />
+                    </div>
+                </div>
+            </>
+        );
+    };
+
+    const renderPageFive = () => {
+        return (
+            <>
                 <div className={styles['form-submit-container']}>
                     <h3>Gracias por contribuir a la base de datos de SBN!</h3>
                     <button className={styles['form-submit-button']}>Crear</button>
@@ -109,7 +122,7 @@ const Test = () => {
                 <form className={styles['form']} onSubmit={handleSubmit}>
                     <div className={styles['form-header']}>
                         <p>
-                            página 0{currentPage} de 0{pages[3]}
+                            página 0{currentPage} de 0{pages.length}
                         </p>
                     </div>
                     <div className={styles['form-body']}>
@@ -117,6 +130,7 @@ const Test = () => {
                         {currentPage === 2 && renderPageTwo()}
                         {currentPage === 3 && renderPageThree()}
                         {currentPage === 4 && renderPageFour()}
+                        {currentPage === 5 && renderPageFive()}
                     </div>
                 </form>
                 <div className={styles['image']}>
@@ -134,4 +148,4 @@ const Test = () => {
     );
 };
 
-export default Test;
+export default Form;

@@ -8,4 +8,5 @@ export interface IProject {
     endDate: string;
     status: string;
     image: FileList | null;
+    url: string;
 }
