@@ -7,7 +7,7 @@ interface IProject {
         lat: number;
         lng: number;
     };
-    entities: [string];
+    entities: string;
     objective: string;
     description: string;
     duration: {
@@ -27,7 +27,7 @@ const ProjectSchema: Schema = new Schema<IProject>(
             lat: { type: Number, required: true },
             lng: { type: Number, required: true }
         },
-        entities: [{ type: String, required: true }],
+        entities: { type: String, required: true },
         objective: { type: String, required: true },
         description: { type: String, required: true },
         duration: {
