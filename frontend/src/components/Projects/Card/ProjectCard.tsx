@@ -5,16 +5,16 @@ import styles from './ProjectCard.module.css';
 
 const ProjectCard = () => {
     return (
-        <div>
-            <Link to="#">
-                <img className={styles['project-card-image']} src="/assets/beaver_dam.jpeg" alt="" />
-            </Link>
+        <Link to="#">
+            <div className={styles['card-container']}>
+                <div className={styles['card-image']}></div>
 
-            <div className={styles['project-card-info']}>
-                <span className={styles.title}>Beaver Dam</span>
-                <span className={styles.description}>Climate Mitigation</span>
+                <div className={styles['card-body']}>
+                    <span className={styles.title}>Project Title</span>
+                    <span className={styles.description}>Project Objective</span>
+                </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

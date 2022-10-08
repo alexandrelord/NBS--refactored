@@ -23,7 +23,7 @@ const ProjectDetail = () => {
         <div className={styles.project}>
             <div className={styles['project-main']}>
                 <p className={styles['project-num']}>Proyecto 01</p>
-                <div className={styles['form-title']}>
+                <div className={styles['project-title']}>
                     <h1>
                         <span className={styles['span-one']}>humedales</span>
                         <span className={styles['span-two']}>de la</span>
@@ -32,8 +32,7 @@ const ProjectDetail = () => {
                 </div>
                 <p className={styles['project-description']}>
                     Busca reducir la vulnerabilidad de las comunidades y de los humedales en la región de la Depresión Momposina a los riesgos de inundación y de sequía asociados con el cambio
-                    climático y la variabilidad climática, a través del fortalecimiento del Sistema de Información Hidrometeorológico SIA, la recuperación de los humedales, el aumento en la capacidad
-                    de adaptación de las comunidades locales y la incorporación de la gestión del riesgo y las medidas de adaptación en los procesos de planeación y toma de decisiones.
+                    climático y la variabilidad climática, a través del fortalecimiento de la capacidad de adaptación de las comunidades y de los humedales.
                 </p>
                 <img className={styles['project-img']} src="/assets/tree.jpeg" alt="" />
             </div>

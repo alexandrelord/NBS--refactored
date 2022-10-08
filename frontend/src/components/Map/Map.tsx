@@ -1,6 +1,8 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 
-const LeafletMap = () => {
+import style from './Map.module.css';
+
+const Map = () => {
     return (
         <MapContainer center={[4.5709, -74.2973]} zoom={5} scrollWheelZoom={true} style={{ height: '100%', width: '100%' }}>
             {/* <Marker 
@@ -13,4 +15,4 @@ const LeafletMap = () => {
     );
 };
 
-export default LeafletMap;
+export default Map;

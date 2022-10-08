@@ -1,31 +1,36 @@
-.project-card-image {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
+.card-container {
+    display: grid;
+    grid-template-rows: 2.2fr 1fr;
+    height: 19rem;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
+    filter: none;
 }
 
-.project-card-image:hover {
+.card-container:hover {
     transform: scale(1.05);
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
+    filter: grayscale(100%);
 }
 
-.project-card-info {
+.card-image {
+    background-image: url('/public/assets/tree.jpeg');
+    background-size: cover;
+}
+
+.card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0.75rem;
+    justify-content: center;
+    background-color: #266f45;
+    gap: 0.5rem;
 }
 
-.project-card-info > .title {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    margin-bottom: 0.5rem;
-    color: black;
+.card-body > .title {
+    font-size: 1.8rem;
 }
 
-.project-card-info > .description {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: rgb(107, 114, 128);
+.card-body > .description {
+    font-size: 1.1rem;
 }

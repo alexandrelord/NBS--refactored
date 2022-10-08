@@ -133,7 +133,7 @@ const Form = () => {
                         {currentPage === 5 && renderPageFive()}
                     </div>
                 </form>
-                <div className={styles['image']}>
+                <div className={styles['form-image']}>
                     <div className={styles['button-container']}>
                         <button className={styles.up} value="prev" onClick={handlePageNumber}>
                             <i className={styles['arrow']}></i>

@@ -16,10 +16,10 @@
 
 .form {
     grid-area: 'form';
-    background-color: rgb(250, 206, 57);
+    background-color: var(--yellow);
 }
 
-.image {
+.form-image {
     grid-area: 'image';
     background-image: url('/public/assets/Cactus.jpg');
     background-size: cover;

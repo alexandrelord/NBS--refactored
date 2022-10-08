@@ -30,7 +30,7 @@
     text-transform: uppercase;
 }
 
-.project-title .span-one,
+.project-title > .span-one,
 .span-two,
 .span-three {
     display: block;

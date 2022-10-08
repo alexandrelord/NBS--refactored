@@ -29,32 +29,34 @@ const NavBar = () => {
     };
 
     return (
-        <nav>
-            <Link to="/">SBN</Link>
-            <div className={styles['hamburger-wrapper']}>
-                <svg className={styles.hamburger} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        fillRule="evenodd"
-                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                        clipRule="evenodd"
-                    ></path>
-                </svg>
-            </div>
-            <div className={styles.menu}>
-                <Link to="/projects">Proyectos</Link>
-                <Link to="/projects/create">Crear Proyecto</Link>
-                {!user ? (
-                    <Link to="/login" state={{ prevPath: pathname }}>
-                        Iniciar Sesión
-                    </Link>
-                ) : (
-                    <Link to="#" onClick={handleLogout}>
-                        {' '}
-                        Cerrar Sesión{' '}
-                    </Link>
-                )}
-            </div>
-        </nav>
+        <>
+            <nav className={pathname === '/' ? styles['home-page'] : styles['other-pages']}>
+                <Link to="/">SBN</Link>
+                <div className={styles['hamburger-wrapper']}>
+                    <svg className={styles.hamburger} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            fillRule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clipRule="evenodd"
+                        ></path>
+                    </svg>
+                </div>
+                <div className={styles.menu}>
+                    <Link to="/projects">Proyectos</Link>
+                    <Link to="/projects/create">Crear Proyecto</Link>
+                    {!user ? (
+                        <Link to="/login" state={{ prevPath: pathname }}>
+                            Iniciar Sesión
+                        </Link>
+                    ) : (
+                        <Link to="#" onClick={handleLogout}>
+                            {' '}
+                            Cerrar Sesión{' '}
+                        </Link>
+                    )}
+                </div>
+            </nav>
+        </>
     );
 };
 

@@ -6,7 +6,12 @@
     padding: 0;
 }
 
+:root {
+    --yellow: rgb(250, 206, 57);
+    --green: #266f45;
+}
+
 body {
     font-family: 'Playfair Display', serif;
-    background-color: rgb(160, 160, 160);
+    background-color: whitesmoke;
 }
