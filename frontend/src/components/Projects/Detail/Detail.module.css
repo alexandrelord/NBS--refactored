@@ -1,0 +1,126 @@
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100vh;
+    gap: 1rem;
+    padding: 1rem;
+    color: whitesmoke;
+    background-color: black;
+}
+
+.left-container {
+    grid-column: 1;
+    background-color: var(--green);
+    padding: 1rem;
+    position: relative;
+}
+
+.middle-container {
+    grid-column: 2;
+    background-color: var(--green);
+}
+
+.right-container {
+    grid-column: 3;
+    background-color: var(--green);
+    position: relative;
+}
+
+.left-container > .header > .project-num {
+    font-size: 1.1rem;
+}
+
+.left-container > .project-title {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-title h1 {
+    font-size: 6rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.project-title > .span-one,
+.span-two,
+.span-three {
+    display: block;
+}
+
+.project-title .span-two {
+    opacity: 0.8;
+}
+
+.project-title .span-three {
+    opacity: 0.6;
+}
+
+.project-body {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 60%;
+}
+
+.project-body p {
+    font-size: 2rem;
+}
+
+.middle-container {
+    padding-bottom: 1rem;
+}
+
+.middle-container > .project-images {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    height: 100%;
+}
+
+.middle-container > .project-images > .image {
+    background-image: url('/public/assets/Cactus.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.middle-container > .project-images > .image:hover {
+    filter: grayscale(0%);
+}
+
+.right-container {
+    padding: 1rem;
+}
+
+.right-container > .map-container {
+    height: 20%;
+    padding-bottom: 1rem;
+    /* filter: grayscale(100%); */
+}
+
+.right-container > .map-container:hover {
+    filter: grayscale(0%);
+}
+
+/* @media (max-width: 1905px) {
+    .project-body p {
+        font-size: 1rem;
+    }
+} */
+
+.right-container p {
+    font-size: 1.5rem;
+}
+
+.project-info {
+    /* width: 60%; */
+}
+
+.right-container .footer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}

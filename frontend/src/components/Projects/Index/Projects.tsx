@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import styles from './Projects.module.css';
 
 /** Custom Components */
-import LeafletMap from '../../Map/Map';
+import Map from '../../Map/Map';
 import ProjectCard from '../Card/ProjectCard';
 
 const Projects = () => {
@@ -13,9 +13,13 @@ const Projects = () => {
     return (
         <>
             <div className={styles['map-wrapper']}>
-                <LeafletMap />
+                <Map />
             </div>
             <div className={styles.projects}>
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
                 <ProjectCard />
                 <ProjectCard />
                 <ProjectCard />

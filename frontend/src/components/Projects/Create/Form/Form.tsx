@@ -122,7 +122,7 @@ const Form = () => {
                 <form className={styles['form']} onSubmit={handleSubmit}>
                     <div className={styles['form-header']}>
                         <p>
-                            página 0{currentPage} de 0{pages.length}
+                            0{currentPage} de 0{pages.length}
                         </p>
                     </div>
                     <div className={styles['form-body']}>

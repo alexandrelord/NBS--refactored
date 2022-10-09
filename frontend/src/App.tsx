@@ -5,15 +5,17 @@ import Layout from './components/Layout';
 import Login from './components/Auth/Login/Login';
 import Home from './components/Home/Home';
 import Projects from './components/Projects/Index/Projects';
-import ProjectDetail from './components/Projects/Detail/ProjectDetail';
+import ProjectDetail from './components/Projects/Detail/Detail';
 import NoMatch from './components/NoMatch/NoMatch';
 import LoginSuccess from './components/Auth/SuccessOrFailure/LoginSuccess';
 import ProjectCreate from './components/Projects/Create/Create';
+import Test from './components/Test/Test';
 
 function App() {
     return (
         <Routes>
             <Route path="detail" element={<ProjectDetail />} />
+            <Route path="test" element={<Test />} />
             <Route path="/" element={<Home />} />
             <Route path="/" element={<Layout />}>
                 <Route path="login" element={<Login />} />
