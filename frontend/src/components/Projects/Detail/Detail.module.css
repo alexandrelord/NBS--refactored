@@ -4,25 +4,25 @@
     height: 100vh;
     gap: 1rem;
     padding: 1rem;
-    color: whitesmoke;
+    color: var(--light-green);
     background-color: black;
 }
 
 .left-container {
     grid-column: 1;
-    background-color: var(--green);
+    background-color: var(--dark-green);
     padding: 1rem;
     position: relative;
 }
 
 .middle-container {
     grid-column: 2;
-    background-color: var(--green);
+    background-color: var(--dark-green);
 }
 
 .right-container {
     grid-column: 3;
-    background-color: var(--green);
+    background-color: var(--dark-green);
     position: relative;
 }
 

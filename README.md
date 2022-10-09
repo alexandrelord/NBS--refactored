@@ -20,6 +20,10 @@ The app showcases NbS for climate mitigation and adaptation in Colombia.
 
 <img src="project-images/home_page.png" width=100% />
 
+#### Projects Detail Page
+
+<img src="project-images/details.png" width=100% />
+
 #### Add Project Form
 
 <img src="project-images/add_project_1.png" width=100% />
@@ -28,5 +32,3 @@ The app showcases NbS for climate mitigation and adaptation in Colombia.
 <img src="project-images/add_project_4.png" width=100% />
 
 #### Projects Page
-
-#### Projects Detail Page

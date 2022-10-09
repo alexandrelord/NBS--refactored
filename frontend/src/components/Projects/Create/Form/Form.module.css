@@ -16,7 +16,7 @@
 
 .form {
     grid-area: 'form';
-    background-color: var(--yellow);
+    background-color: var(--green);
 }
 
 .form-image {
@@ -73,7 +73,7 @@ textarea {
     border: none;
     padding: 0.5rem;
     font-size: 1.5rem;
-    background-color: rgb(253, 230, 155);
+    background-color: var(--light-green);
 }
 
 .input-container > textarea {
@@ -108,7 +108,7 @@ select:focus {
     padding: 0.5rem;
     font-size: 1.8rem;
     font-family: 'Playfair Display', serif;
-    background-color: rgb(253, 230, 155);
+    background-color: var(--light-green);
     cursor: pointer;
     width: 15rem;
 }
@@ -128,7 +128,7 @@ select:focus {
     font-size: 0.75rem;
     border: none;
     cursor: pointer;
-    background-color: rgb(253, 230, 155);
+    background-color: var(--green);
 }
 
 .button-container .up {

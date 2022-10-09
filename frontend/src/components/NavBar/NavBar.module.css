@@ -1,4 +1,4 @@
-.home-page {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,15 +10,8 @@
 }
 
 .other-pages {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.75rem;
-    z-index: 20;
-    font-size: 1.5rem;
-    position: relative;
-    z-index: 1;
-    background-color: #266f45;
+    background-color: var(--green);
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
 }
 
 .menu {

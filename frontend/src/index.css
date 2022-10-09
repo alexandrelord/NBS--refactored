@@ -7,9 +7,10 @@
 }
 
 :root {
-    --yellow: rgb(250, 206, 57);
-    --green: #266f45;
-    --ice-blue: rgb(210, 220, 226);
+    /* --yellow: rgb(250, 206, 57); */
+    --dark-green: rgb(38, 111, 69);
+    --green: rgb(200, 230, 201);
+    --light-green: rgb(240, 250, 240);
 }
 
 body {
