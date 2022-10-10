@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
+import { api } from '../../../../services/api';
+
 import styles from './Form.module.css';
 
 /** Interfaces */
 import { IProject } from '../../../../types/interfaces';
+import { imageOverlay } from 'leaflet';
 
 const Form = () => {
     const [project, setProject] = useState<IProject>({} as IProject);
@@ -12,7 +15,13 @@ const Form = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(project);
+        try {
+            // const response = api({ url: 'http://localhost:4000/projects/create', method: 'POST', data: project });
+            const response = api({ url: 'https://api.imgur.com/3/image', method: 'POST', data: project.image });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handlePageNumber = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -88,13 +97,41 @@ const Form = () => {
         );
     };
 
+    const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { files } = e.target; // FileList
+        const maxUploadFiles = 5;
+
+        if (files && files.length > maxUploadFiles) {
+            // Check if there are more than 5 files
+            alert(`Solo puedes subir ${maxUploadFiles} imágenes`); // Alert the user
+            return;
+        }
+
+        if (files) {
+            const filesArray = Array.from(files).map((file) => URL.createObjectURL(file)); // create a local URL for each file
+            const arrayBase64: string[] = [];
+
+            for (let i = 0; i < filesArray.length; i++) {
+                const reader = new FileReader(); // create a file reader, FileReader is a built-in JS object
+                reader.readAsDataURL(files[i]); // read the binary data and encode it as base64 dataURL. - a base64 dataURL is a string containing a representation of the file's data encoded as a base64 string.
+                reader.onload = () => {
+                    const base64 = reader.result?.toString().split(',')[1]; // remove the Data-URL declaration (data:*/*;base64,) preceding the base64-encoded data, and retrieve only the base64 encoded string
+                    if (base64) {
+                        arrayBase64.push(base64);
+                    }
+                };
+            }
+            setProject({ ...project, image: arrayBase64 });
+        }
+    };
+
     const renderPageFour = () => {
         return (
             <>
                 <div className={styles['input-container']}>
                     <div className={styles['input-container']}>
                         <label htmlFor="files">Imagen</label>
-                        <input id="files" onChange={(e) => setProject({ ...project, image: e.target.files })} type="file" required />
+                        <input id="files" multiple onChange={handleImage} type="file" required />
                     </div>
                     <div className={styles['input-container']}>
                         <label htmlFor="files">Link</label>

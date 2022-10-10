@@ -7,6 +7,6 @@ export interface IProject {
     startDate: string;
     endDate: string;
     status: string;
-    image: FileList | null;
+    image: string[];
     url: string;
 }
