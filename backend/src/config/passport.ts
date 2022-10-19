@@ -1,5 +1,5 @@
-import { config } from '../config';
-import User from '../../models/user';
+import { config } from './config';
+import User from '../models/user';
 import passport from 'passport';
 import passportGoogle from 'passport-google-oauth20';
 
@@ -22,16 +22,16 @@ passport.use(
                     email: profile.emails?.[0].value
                 });
                 if (newUser) {
+                    await newUser.save();
+                    done(null, newUser);
+                } else {
                     done(null, newUser);
                 }
-            } else {
-                done(null, user);
             }
         }
     )
 );
 
-// Generate session token with user id
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
