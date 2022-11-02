@@ -25,22 +25,22 @@ const ProjectSchema: Schema = new Schema<IProject>(
         city: { type: String, required: true },
         coordinates: {
             lat: { type: Number, required: true },
-            lng: { type: Number, required: true }
+            lng: { type: Number, required: true },
         },
         entities: { type: String, required: true },
         objective: { type: String, required: true },
         description: { type: String, required: true },
         duration: {
             start: { type: Number, required: true },
-            end: { type: Number, required: true }
+            end: { type: Number, required: true },
         },
-        status: { type: String, enum: ['No Ejecutado', 'Ejecutado'], required: true }
+        status: { type: String, enum: ['No Ejecutado', 'Ejecutado'], required: true },
         // image: { type: String, required: true },
         // author: { type: Schema.Types.ObjectId, ref: 'User', required: true }
     },
     {
-        timestamps: true
-    }
+        timestamps: true,
+    },
 );
 
 export default mongoose.model<IProject>('Project', ProjectSchema);
