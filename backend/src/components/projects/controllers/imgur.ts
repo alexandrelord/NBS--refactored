@@ -5,12 +5,12 @@ const options = {
     method: 'POST',
     url: 'https://api.imgur.com/3/image',
     headers: {
-        Authorization: `Client-ID ${process.env.IMGUR_CLIENT_ID}`
+        Authorization: `Client-ID ${process.env.IMGUR_CLIENT_ID}`,
     },
     formData: {
         image: '',
-        type: 'base64'
-    }
+        type: 'base64',
+    },
 };
 
 export const saveToImgur = async (image: string) => {

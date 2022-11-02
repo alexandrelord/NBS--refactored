@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "ts-node-dev --respawn --transpile-only -- src/server.ts",
+        "start": "ts-node-dev --respawn --transpile-only -- src/components/server/server.ts",
         "lint": "eslint --ext .ts src/"
     },
     "author": "Alexandre Lord",
