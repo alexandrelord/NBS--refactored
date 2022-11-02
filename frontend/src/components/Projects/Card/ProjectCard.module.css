@@ -1,0 +1,36 @@
+.card-container {
+    display: grid;
+    grid-template-rows: 2.2fr 1fr;
+    height: 19rem;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
+    filter: none;
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    filter: grayscale(100%);
+}
+
+.card-image {
+    background-image: url('/public/assets/tree.jpeg');
+    background-size: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+    gap: 0.5rem;
+}
+
+.card-body > .title {
+    font-size: 1.8rem;
+}
+
+.card-body > .description {
+    font-size: 1.1rem;
+}

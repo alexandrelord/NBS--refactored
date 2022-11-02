@@ -1,0 +1,12 @@
+.buttons-container {
+    height: 12.5rem;
+    position: relative;
+    margin-top: 12.5rem;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
