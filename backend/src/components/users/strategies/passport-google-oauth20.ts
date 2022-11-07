@@ -17,6 +17,8 @@ const googleStrategy = new GoogleStrategy(opts, async (accessToken, refreshToken
         }
         const newUser = await User.create({
             email: profile.emails?.[0].value,
+
+            accountType: 'google',
         });
         return done(null, newUser);
     } catch (err) {
