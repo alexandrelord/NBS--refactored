@@ -6,6 +6,7 @@ export interface IUser extends mongoose.Document {
         hash: string;
         salt: string;
     };
+    accountType: string;
 }
 
 const UserSchema = new mongoose.Schema<IUser>(
@@ -15,6 +16,7 @@ const UserSchema = new mongoose.Schema<IUser>(
             hash: { type: String },
             salt: { type: String },
         },
+        accountType: { type: String, required: true },
     },
     {
         timestamps: true,
