@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { config } from '../../../config/config';
-import User, { IUser } from '../models/users';
+import User from '../models/users';
 
 const opts = {
     clientID: config.google.clientId,
@@ -11,21 +10,18 @@ const opts = {
 };
 
 const googleStrategy = new GoogleStrategy(opts, async (accessToken, refreshToken, profile, done) => {
-    User.findOne({ email: profile.emails?.[0].value }, async (err: mongoose.CallbackError, user: IUser) => {
-        if (err) {
-            return done(err, false);
+    try {
+        const user = await User.findOne({ email: profile.emails?.[0].value });
+        if (user) {
+            return done(null, user);
         }
-        if (!user) {
-            if (!profile.emails?.[0].value) {
-                return done(null, false);
-            }
-            const newUser = await new User({
-                email: profile.emails?.[0].value,
-            }).save();
-            return done(null, newUser);
-        }
-        return done(null, user);
-    });
+        const newUser = await User.create({
+            email: profile.emails?.[0].value,
+        });
+        return done(null, newUser);
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 export default passport.use(googleStrategy);
