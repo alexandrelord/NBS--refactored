@@ -23,6 +23,7 @@ const UserSchema = new mongoose.Schema<IUser>(
             name: { type: String, enum: ['local', 'google'], required: true },
             googleId: { type: String, default: null },
         },
+        accountType: { type: String, required: true },
     },
     {
         timestamps: true,
