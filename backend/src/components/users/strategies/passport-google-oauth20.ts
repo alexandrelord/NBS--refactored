@@ -1,6 +1,7 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { config } from '../../../config/config';
+import { createGoogleUser } from '../controllers/users.services';
 import User from '../models/users';
 
 const opts = {
@@ -11,14 +12,14 @@ const opts = {
 
 const googleStrategy = new GoogleStrategy(opts, async (accessToken, refreshToken, profile, done) => {
     try {
-        const user = await User.findOne({ email: profile.emails?.[0].value });
+        const user = await User.findOne({ 'accountType.googleId': profile.id });
+
         if (user) {
             return done(null, user);
         }
-        const newUser = await User.create({
-            email: profile.emails?.[0].value,
-            accountType: 'google',
-        });
+
+        const newUser = createGoogleUser(profile);
+
         return done(null, newUser);
     } catch (err) {
         console.error(err);

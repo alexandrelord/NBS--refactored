@@ -6,17 +6,23 @@ export interface IUser extends mongoose.Document {
         hash: string;
         salt: string;
     };
-    accountType: string;
+    accountType: {
+        name: string;
+        googleId?: string;
+    };
 }
 
 const UserSchema = new mongoose.Schema<IUser>(
     {
-        email: { type: String, required: true, unique: true },
+        email: { type: String, default: null, unique: true },
         password: {
-            hash: { type: String },
-            salt: { type: String },
+            hash: { type: String, required: true },
+            salt: { type: String, required: true },
         },
-        accountType: { type: String, required: true },
+        accountType: {
+            name: { type: String, enum: ['local', 'google'], required: true },
+            googleId: { type: String, default: null },
+        },
     },
     {
         timestamps: true,
