@@ -3,14 +3,14 @@ import fs from 'fs';
 
 export const geocoder = async (city: string) => {
     const options: NodeGeocoder.Options = {
-        provider: 'openstreetmap'
+        provider: 'openstreetmap',
     };
 
     const query: NodeGeocoder.Query = {
-        // working but why?
-        city: city,
+        address: city,
         country: 'Colombia',
-        limit: 1
+        limit: 1,
+        minConfidence: 0.8,
     };
 
     const data = await NodeGeocoder(options).geocode(query);

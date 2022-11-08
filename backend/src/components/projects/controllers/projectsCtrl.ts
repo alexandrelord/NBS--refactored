@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import Project from '../models/projects';
-import { geocoder, base64Encode } from './projectsUtil';
+import { geocoder, base64Encode } from './projects.service';
 import { saveToImgur } from './imgur';
 
 export const getProjects = async (req: Request, res: Response) => {
