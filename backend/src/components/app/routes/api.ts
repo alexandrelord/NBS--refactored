@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import userRoutes from '../../users/routes/users';
-import projectRoutes from '../../projects/routes/projects';
+import projectRoutes from '../../projects/routes/projects_routes';
 
 const router = Router();
 

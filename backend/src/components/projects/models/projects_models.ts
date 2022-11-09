@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-interface IProject {
+export interface IProject {
     name: string;
     city: string;
     coordinates: {

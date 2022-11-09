@@ -1,5 +1,5 @@
 import express from 'express';
-import { getProjects, createProject } from '../controllers/projectsCtrl';
+import { getProjects, createProject } from '../controllers/projects_controllers';
 import multer from 'multer';
 
 const router = express.Router();
